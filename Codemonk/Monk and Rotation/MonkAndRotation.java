@@ -12,6 +12,8 @@ Sample Output
 4 5 1 2 3
 */
 
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
 /*
  * uncomment this if you want to read input.
 //imports for BufferedReader
@@ -48,7 +50,6 @@ class TestClass {
         int n = sc.nextInt();
         int k = sc.nextInt();
         int a[] = new int[n];
-        int a1[] = new int[n];
         k = k % n;
         int count = k;
         for(int i = 0; i < n; i++){
@@ -56,15 +57,12 @@ class TestClass {
         }
         for(int i = 0; i < n ; i++){
             if(count > 0){
-                a1[i] = a[n - k + i];
+                System.out.print(a[n - k + i] + " ");
                 count--;
             }
             else{
-                a1[i] = a[i - k];
+                System.out.print(a[i - k] + " ");
             }
-        }
-        for(int i = 0; i < n; i++){
-            System.out.print(a1[i] + " ");
         }
         t--;
         System.out.println("");
