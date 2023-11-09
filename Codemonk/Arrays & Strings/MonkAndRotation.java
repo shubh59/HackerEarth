@@ -44,28 +44,23 @@ class TestClass {
         */
 
         // Write your code here
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+        StringBuilder s = new StringBuilder();
+        int t = sc.nextInt(), n, k, a[], count, i;
         while(t > 0){
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int a[] = new int[n];
-        k = k % n;
-        int count = k;
-        for(int i = 0; i < n; i++){
-            a[i] = sc.nextInt();
-        }
-        for(int i = 0; i < n ; i++){
-            if(count > 0){
-                System.out.print(a[n - k + i] + " ");
+            a = new int[n = sc.nextInt()];
+            count = k = sc.nextInt() % n;
+            for(i = 0; i < n; i++) a[i] = sc.nextInt();
+            for(i = 0; i < n ; i++)
+            if (count <= 0) s.append(a[i - k]).append(' ');
+            else {
+                s.append(a[n - k + i]).append(' ');
                 count--;
             }
-            else{
-                System.out.print(a[i - k] + " ");
-            }
+            t--;
+            s.append('\n');
         }
-        t--;
-        System.out.println("");
-        }
+        System.out.println(s);
+        sc.close();
     }
 }
